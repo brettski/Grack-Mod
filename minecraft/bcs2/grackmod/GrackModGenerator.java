@@ -20,7 +20,7 @@ public class GrackModGenerator implements IWorldGenerator {
 
 	public void genBlocks(World world, Random random, int chunkX, int chunkZ) {
 		
-		addBlock(GrackMod.blockOreGrack, world, random, chunkX, chunkZ, 16, 16, 8, 10, 10, 100);
+		addBlock(GrackMod.blockOreGrack, world, random, chunkX, chunkZ, 16, 16, 8, 20, 10, 100);
 		
 	}
 	/**
@@ -38,6 +38,7 @@ public class GrackModGenerator implements IWorldGenerator {
 	 */
 	public void addBlock(Block block, World world, Random random, int chunkX, int chunkZ,
 			int xMax, int zMax, int vain, int number, int yMin, int yMax) {
+		
 		for (int i = 0; i < number; i++) {
 			(new WorldGenMinable(block.blockID, vain)).generate(world, random, 
 					chunkX + random.nextInt(16), yMin + random.nextInt(yMax-yMin), chunkZ + random.nextInt(16));
