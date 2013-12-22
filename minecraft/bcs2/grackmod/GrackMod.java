@@ -19,7 +19,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="bcs2.grackmod", name="GrackMod", version="1.0.0")
+@Mod(modid="bcs2.grackmod", name="GrackMod", version="1.1")
 @NetworkMod(clientSideRequired=true)
 public class GrackMod {
 
