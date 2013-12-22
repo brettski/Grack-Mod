@@ -3,8 +3,10 @@ package bcs2.grackmod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler; // used in 1.6.2
@@ -39,7 +41,21 @@ public class GrackMod {
 	public static Block blockOreGrack;
 	private int blockOreGrackId;
 	
+	// Define armor
+	public static Item grackHelmet;
+	public static Item grackChestplate;
+	public static Item grackLeggings;
+	public static Item grackBoots;
+	private int grackHelmetId;
+	private int grackChestplateId;
+	private int grackLeggingsId;
+	private int grackBootsId;
+	
 	GrackModGenerator gen = new GrackModGenerator();
+	
+	// Define material
+	// Look at Enum class for description (<ctrl> + click)
+	public static EnumArmorMaterial grackArmor = EnumHelper.addArmorMaterial("Grack", 100, new int[] {2, 5, 3, 1}, 25);
 	
 
     // The instance of your mod that Forge uses.
@@ -59,8 +75,12 @@ public class GrackMod {
     	grackCompressedId = config.get(Configuration.CATEGORY_ITEM, "Compressed Grack", 23002).getInt();
     	grackIngotId = config.get(Configuration.CATEGORY_ITEM, "Grack Ingot", 23003).getInt();
     	
-    	blockOreGrackId = config.get(Configuration.CATEGORY_BLOCK, "Grack Ore", 601).getInt();
+    	grackHelmetId = config.get("Armor IDs", "Grack Helmet Id", 23020).getInt();
+    	grackChestplateId = config.get("Armor IDs", "Grack Chestplate Id", 23021).getInt();
+    	grackLeggingsId = config.get("Armor Ids", "Grack Leggings Id", 23022).getInt();
+    	grackBootsId = config.get("Armor IDs", "Grack boots Id", 23023).getInt();
     	
+    	blockOreGrackId = config.get(Configuration.CATEGORY_BLOCK, "Grack Ore", 601).getInt();
     	
     	
     	config.save();
@@ -78,7 +98,10 @@ public class GrackMod {
     	
     	
     	// Armor settings
-    	
+    	grackHelmet = new GrackArmor(grackHelmetId, grackArmor, proxy.addArmor("GrackArmor"), 0).setUnlocalizedName("grackHelmet");
+    	grackChestplate = new GrackArmor(grackChestplateId, grackArmor, proxy.addArmor("GrackArmor"), 1).setUnlocalizedName("grackChestplate");
+    	grackLeggings = new GrackArmor(grackLeggingsId, grackArmor, proxy.addArmor("GrackArmor"), 2).setUnlocalizedName("grackLeggings");
+    	grackBoots = new GrackArmor(grackBootsId, grackArmor, proxy.addArmor("GrackArmor"), 3).setUnlocalizedName("grackBoots");
     	
     	// Block settings and registration
     	/* 0=wood, 1=stone, 2=iron, 3=diamond */
@@ -97,10 +120,13 @@ public class GrackMod {
     	
     	
     	// Armor names
-    	
+    	LanguageRegistry.addName(grackHelmet, "Grack Helmet");
+    	LanguageRegistry.addName(grackChestplate, "Grack Chestplate");
+    	LanguageRegistry.addName(grackLeggings, "Grack Leggings");
+    	LanguageRegistry.addName(grackBoots, "Grack Boots");
     	
     	// Block names
-    	LanguageRegistry.addName(blockOreGrack, "blockOreGrack");
+    	LanguageRegistry.addName(blockOreGrack, "Grack Ore");
     	
     	
     	// Recipes in class RecipesGrack.java
