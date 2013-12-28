@@ -21,6 +21,11 @@ public class RecipesGrack {
 		GameRegistry.addRecipe(new ItemStack(GrackMod.grackLeggings), "ggg", "g g", "g g", 'g', GrackMod.grackIngot);
 		GameRegistry.addRecipe(new ItemStack(GrackMod.grackBoots), "g g", "g g", 'g', GrackMod.grackIngot);
 		GameRegistry.addRecipe(new ItemStack(GrackMod.blockGrackBlock), "ggg", "ggg", "ggg", 'g', GrackMod.grackIngot);
+		GameRegistry.addRecipe(new ItemStack(GrackMod.grackSword), " g ", " g ", " s ", 'g', GrackMod.grackIngot, 's', Item.stick);
+		GameRegistry.addRecipe(new ItemStack(GrackMod.grackHoe), "gg ", " s ", " s ", 'g', GrackMod.grackIngot, 's', Item.stick);
+		GameRegistry.addRecipe(new ItemStack(GrackMod.grackAxe), "gg ", "gs ", " s ", 'g', GrackMod.grackIngot, 's', Item.stick);
+		GameRegistry.addRecipe(new ItemStack(GrackMod.grackPickaxe), "ggg", " s ", " s ", 'g', GrackMod.grackIngot, 's', Item.stick);
+		GameRegistry.addRecipe(new ItemStack(GrackMod.grackShovel), " g ", " s ", " s ", 'g', GrackMod.grackIngot, 's', Item.stick);
 		
 		// smelting
 		GameRegistry.addSmelting(GrackMod.grackCompressed.itemID, new ItemStack(GrackMod.grackIngot), 0.2f);

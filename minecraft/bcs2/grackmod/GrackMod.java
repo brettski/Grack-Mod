@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -42,11 +43,17 @@ public class GrackMod {
 	public static Item grackSeeds;
 	public int grackSeedsId;
 	
-	// Define material
-	
-	
 	// Define tools
-	
+	public static Item grackSword;
+	private int grackSwordId;
+	public static Item grackHoe;
+	private int grackHoeId;
+	public static Item grackAxe;
+	private int grackAxeId;
+	public static Item grackPickaxe;
+	private int grackPickaxeId;
+	public static Item grackShovel;
+	private int grackShovelId;
 	
 	// Define Blocks
 	public static Block blockOreGrack;
@@ -70,8 +77,8 @@ public class GrackMod {
 	
 	// Define material
 	// Look at Enum class for description (<ctrl> + click)
-	public static EnumArmorMaterial grackArmor = EnumHelper.addArmorMaterial("Grack", 100, new int[] {2, 5, 3, 1}, 25);
-	
+	public static EnumArmorMaterial grackArmorMaterial = EnumHelper.addArmorMaterial("Grack", 40, new int[] {3, 7, 5, 3}, 15);
+	public static EnumToolMaterial grackToolMaterial = EnumHelper.addToolMaterial("Grack", 3, 1000, 7.2f, 2.5f, 15);
 
     // The instance of your mod that Forge uses.
     @Instance(value = "bcs2.grackmod")
@@ -93,6 +100,11 @@ public class GrackMod {
     	grackBreadId = config.get(Configuration.CATEGORY_ITEM, "Grack Bread", 23005).getInt();
     	grackWheatId = config.get(Configuration.CATEGORY_ITEM, "Grack Wheat", 23006).getInt();
     	grackSeedsId = config.get(Configuration.CATEGORY_ITEM, "Grack Seeds", 23007).getInt();
+    	grackSwordId = config.get(Configuration.CATEGORY_ITEM, "Grack Sword", 23008).getInt();
+    	grackHoeId = config.get(Configuration.CATEGORY_ITEM, "Grack Hoe", 23009).getInt();
+    	grackAxeId = config.get(Configuration.CATEGORY_ITEM, "Grack Axe", 23010).getInt();
+    	grackPickaxeId = config.get(Configuration.CATEGORY_ITEM, "Grack Pickaxe", 23011).getInt();
+    	grackShovelId = config.get(Configuration.CATEGORY_ITEM, "Grack Shovel", 23012).getInt();
     	
     	grackHelmetId = config.get("Armor IDs", "Grack Helmet Id", 23020).getInt();
     	grackChestplateId = config.get("Armor IDs", "Grack Chestplate Id", 23021).getInt();
@@ -119,13 +131,17 @@ public class GrackMod {
     	grackWheat = new ItemGrack(grackWheatId).setUnlocalizedName("grackWheat").setTextureName("grackmod:grack_wheat");
     	
     	// Tool settings
-    	
+    	grackSword = new ItemGrackSword(grackSwordId, grackToolMaterial).setUnlocalizedName("grackSword");
+    	grackHoe = new ItemGrackHoe(grackHoeId, grackToolMaterial).setUnlocalizedName("grackHoe");
+    	grackAxe = new ItemGrackAxe(grackAxeId, grackToolMaterial).setUnlocalizedName("grackAxe");
+    	grackPickaxe = new ItemGrackPickaxe(grackPickaxeId, grackToolMaterial).setUnlocalizedName("grackPickaxe");
+    	grackShovel = new ItemGrackShovel(grackShovelId, grackToolMaterial).setUnlocalizedName("grackShovel");
     	
     	// Armor settings
-    	grackHelmet = new GrackArmor(grackHelmetId, grackArmor, proxy.addArmor("GrackArmor"), 0).setUnlocalizedName("grackHelmet");
-    	grackChestplate = new GrackArmor(grackChestplateId, grackArmor, proxy.addArmor("GrackArmor"), 1).setUnlocalizedName("grackChestplate");
-    	grackLeggings = new GrackArmor(grackLeggingsId, grackArmor, proxy.addArmor("GrackArmor"), 2).setUnlocalizedName("grackLeggings");
-    	grackBoots = new GrackArmor(grackBootsId, grackArmor, proxy.addArmor("GrackArmor"), 3).setUnlocalizedName("grackBoots");
+    	grackHelmet = new GrackArmor(grackHelmetId, grackArmorMaterial, proxy.addArmor("GrackArmor"), 0).setUnlocalizedName("grackHelmet");
+    	grackChestplate = new GrackArmor(grackChestplateId, grackArmorMaterial, proxy.addArmor("GrackArmor"), 1).setUnlocalizedName("grackChestplate");
+    	grackLeggings = new GrackArmor(grackLeggingsId, grackArmorMaterial, proxy.addArmor("GrackArmor"), 2).setUnlocalizedName("grackLeggings");
+    	grackBoots = new GrackArmor(grackBootsId, grackArmorMaterial, proxy.addArmor("GrackArmor"), 3).setUnlocalizedName("grackBoots");
     	
     	// Block settings and registration
     	/* 0=wood, 1=stone, 2=iron, 3=diamond */
@@ -151,7 +167,11 @@ public class GrackMod {
     	LanguageRegistry.addName(grackSeeds, "Grack Seeds");
     	
     	// Tool Names
-    	
+    	LanguageRegistry.addName(grackSword, "Grack Sword");
+    	LanguageRegistry.addName(grackHoe, "Grack Hoe");
+    	LanguageRegistry.addName(grackAxe, "Grack Axe");
+    	LanguageRegistry.addName(grackPickaxe, "Grack Pickaxe");
+    	LanguageRegistry.addName(grackShovel, "Grack Shovel");
     	
     	// Armor names
     	LanguageRegistry.addName(grackHelmet, "Grack Helmet");
