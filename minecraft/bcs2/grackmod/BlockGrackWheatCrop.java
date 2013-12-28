@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -27,7 +28,12 @@ public class BlockGrackWheatCrop extends Block {
 		super(id, Material.plants);
 		
 		setTickRandomly(true);
-		this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.5f, 1.0f);
+		float f = 0.5F;
+        this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
+        this.setCreativeTab((CreativeTabs)null);
+        this.setHardness(0.0F);
+        this.setStepSound(soundGrassFootstep);
+        this.disableStats();
 
 	}
 	
@@ -89,7 +95,7 @@ public class BlockGrackWheatCrop extends Block {
 	 * @return
 	 */
 	private static boolean isFullyGrown(int blockMetadata) {
-		return !(blockMetadata < growthStages);
+		return !(blockMetadata < growthStages -1);
 	}
 	/**
 	 * Use to grow crop directly, e.g. using bone meal, etc. 

@@ -1,5 +1,6 @@
 package bcs2.grackmod;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -10,9 +11,9 @@ public class RecipesGrack {
 	public static void getRecipes() {
 		
 		// Shapeless crafting
-		
-		
-		
+		GameRegistry.addShapelessRecipe(new ItemStack(GrackMod.grackDough), new ItemStack(GrackMod.grackWheat), new ItemStack(Item.bucketMilk), new ItemStack(Item.egg));		
+		GameRegistry.addShapelessRecipe(new ItemStack(GrackMod.grackDough), new ItemStack(GrackMod.grackWheat), new ItemStack(Item.bucketWater), new ItemStack(Item.egg));		
+				
 		// crafting
 		GameRegistry.addRecipe(new ItemStack(GrackMod.grackCompressed), "ggg", "ggg", "ggg", 'g', GrackMod.grackDust);
 		GameRegistry.addRecipe(new ItemStack(GrackMod.grackHelmet), "ggg", "g g", 'g', GrackMod.grackIngot);

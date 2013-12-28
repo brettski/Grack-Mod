@@ -171,7 +171,7 @@ public class GrackMod {
     	
     	proxy.registerRenderers();
     	GameRegistry.registerWorldGenerator(gen);
-    	//MinecraftForge.addGrassSeed(new ItemStack(grackSeeds), 1);
+    	MinecraftForge.addGrassSeed(new ItemStack(grackSeeds), 1);
     	MinecraftForge.EVENT_BUS.register(new GrackCropsBonemeal());
     }
     
